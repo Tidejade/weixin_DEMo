@@ -1,0 +1,63 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #261a31;
+  width:600rpx; 
+  height:800px;
+  padding: 300px,0,200px,0;
+  border-radius: 30px;
+  box-shadow: 10x #888888;
+  position: relative;
+  z-index: 1;
+}
+.userinfo-avatar {
+  width:300rpx;
+  height:300rpx;
+  margin-top:100rpx;
+  margin-bottom:20rpx;
+  border-radius: 50%;
+}
+.userinfo-nickname {
+  color: #aaa;
+  font-family : microsoft yahei ;
+
+}
+.userinfo-level{
+  margin-top: 30rpx;
+  width:150rpx;
+  color: #aaa;
+  text-align: center;
+  background: #1d1128;
+  border-radius: 5px;
+  font-family : microsoft yahei ;
+}
+.userinfo-context1 {
+  margin-top: 80rpx;
+  color: #aaa;
+  font-family : microsoft yahei ;
+}
+.userinfo-context2 {
+   margin-top: 10rpx;
+  color: #aaa;
+  font-family : microsoft yahei ;
+}
+.add_button{
+  width: 75px;
+  height: 75px;
+  background: yellow;
+  line-height: 75px;
+  border-radius: 75px;
+  position: absolute;
+  z-index: 100;
+  top:550px;
+  text-align: center;
+  font-size: 70pt;
+  font-weight:bold;
+  color: #261a31;
+  background: #cec3dd;
+}
+.add_button :hover{
+  background: white;
+}
