@@ -14,5 +14,11 @@ Page({
         userInfo:userInfo
       })
     })
+  },
+  // 添加按钮跳转
+  add:function(){
+    wx.redirectTo({
+      url: '../new_task/new_task'
+    })
   }
 })

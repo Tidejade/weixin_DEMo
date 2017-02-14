@@ -17,7 +17,7 @@
   height:300rpx;
   margin-top:100rpx;
   margin-bottom:20rpx;
-  border-radius: 50%;
+  border-radius: 100%;
 }
 .userinfo-nickname {
   color: #aaa;
@@ -44,20 +44,20 @@
   font-family : microsoft yahei ;
 }
 .add_button{
-  width: 75px;
-  height: 75px;
+  width: 150rpx;
+  height: 150rpx;
   background: yellow;
-  line-height: 75px;
-  border-radius: 75px;
+  line-height: 150rpx;
+  border-radius: 150rpx;
   position: absolute;
   z-index: 100;
-  top:550px;
+  top:980rpx;
   text-align: center;
   font-size: 70pt;
   font-weight:bold;
   color: #261a31;
   background: #cec3dd;
 }
-.add_button :hover{
-  background: white;
+.add_button hover{
+  background: red;
 }
