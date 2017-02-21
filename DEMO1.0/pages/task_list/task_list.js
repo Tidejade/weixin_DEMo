@@ -15,5 +15,19 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
+  },
+  test:function(){
+   wx.navigateTo({
+     url: '../task_context/task_context',
+     success: function(res){
+       // success
+     },
+     fail: function() {
+       // fail
+     },
+     complete: function() {
+       // complete
+     }
+   })
   }
 })

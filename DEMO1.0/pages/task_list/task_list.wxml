@@ -9,7 +9,7 @@
         <view class="cir">
         <icon type="circle" size="23" class="cir1"></icon>
         </view>
-        <view class="task_wrap">
+        <view class="task_wrap" bindtap="test" >
             <view class="task_name">早起</view>
             <view class="task_context">每天7点起床</view>
         </view>
