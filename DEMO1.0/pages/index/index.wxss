@@ -13,8 +13,8 @@
   z-index: 1;
 }
 .userinfo-avatar {
-  width:300rpx;
-  height:300rpx;
+  width:250rpx;
+  height:250rpx;
   margin-top:100rpx;
   margin-bottom:20rpx;
   border-radius: 100%;

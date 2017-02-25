@@ -1,3 +1,8 @@
+const AV=require('./lib/av-weapp-min');
+AV.init({ 
+ appId: 'kbG5hYE54Tl5vpt2qDuGBWzQ-gzGzoHsz', 
+ appKey: '3dTWK3Vg0K0Cq6AeJmbf2oTJ', 
+});
 App({
   getUserInfo:function(cb){
     var that = this
@@ -20,4 +25,4 @@ App({
   globalData:{
     userInfo:null
   }
-})
+});

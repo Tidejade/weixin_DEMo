@@ -41,7 +41,7 @@ Page({
        if((oDate1-oDate2)<0){
          wx.showModal({
            title:'',
-           content:'不要穿越穿越 日期不要小于今天'+  Tnow,
+           content:'  日期不要小于今天'+  Tnow,
            duration:3000
          })
          return null;
