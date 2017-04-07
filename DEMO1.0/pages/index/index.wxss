@@ -13,35 +13,24 @@
   z-index: 1;
 }
 .userinfo-avatar {
-  width:250rpx;
-  height:250rpx;
+  width:100px;
+  height:100px;
   margin-top:100rpx;
   margin-bottom:20rpx;
-  border-radius: 100%;
-}
-.userinfo-nickname {
-  color: #aaa;
-  font-family : microsoft yahei ;
-
+  border-radius: 50%;
 }
 .userinfo-level{
   margin-top: 30rpx;
   width:150rpx;
-  color: #aaa;
   text-align: center;
   background: #1d1128;
   border-radius: 5px;
-  font-family : microsoft yahei ;
 }
 .userinfo-context1 {
   margin-top: 80rpx;
-  color: #aaa;
-  font-family : microsoft yahei ;
 }
 .userinfo-context2 {
    margin-top: 10rpx;
-  color: #aaa;
-  font-family : microsoft yahei ;
 }
 .add_button{
   width: 150rpx;
@@ -49,15 +38,12 @@
   background: yellow;
   line-height: 150rpx;
   border-radius: 150rpx;
-  position: absolute;
   z-index: 100;
-  top:980rpx;
+  position: relative;
+  top:43px;
   text-align: center;
-  font-size: 70pt;
+  font-size: 20pt;
   font-weight:bold;
   color: #261a31;
   background: #cec3dd;
-}
-.add_button hover{
-  background: red;
 }

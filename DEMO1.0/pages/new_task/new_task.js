@@ -1,10 +1,16 @@
 // pages/new_task/new_task.js
+const AV=require('../../lib/av-weapp-min');
+const Todo=require('../../model/Todo');
 Page({
   data:{
     date:'点我设置截至日期',
     date_f:'0',
     date_l:'0',
     date_t:'0',
+    T_name:'',
+    T_con:'',
+    DeadLine:'',
+    NowTime:'',
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -23,12 +29,16 @@ Page({
       date_f:0,
       date_l:iDays[0],
       date_t:iDays[1],
+      DeadLine:Tset,
+      NowTime:Tnow,
     })}else{
       this.setData({
       date:Tset,
       date_f:iDays[0],
       date_l:iDays[1],
       date_t:iDays[2],
+      DeadLine:Tset,
+      NowTime:Tnow,
     })
     }
 
@@ -66,5 +76,14 @@ Page({
     wx.redirectTo({
       url: '../task_list/task_list'
     })
-  }
+
+  },
+ updateTName:function({detail:{value}}){
+   if(!value)return;
+   this.setData({T_name:value});
+ },
+ updateTCon:function({detail:{value}}){
+   if(!value)return;
+   this.setData({T_con:value});
+ },
 })

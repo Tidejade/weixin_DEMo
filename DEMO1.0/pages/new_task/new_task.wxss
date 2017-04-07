@@ -31,6 +31,7 @@ opacity: 0.6;
   font-size: 13pt;
 }
 .task_name{
+  font-family: microsoft yahei;
   width: 440rpx;
   height: 100rpx;
   background: #2d213a;

@@ -27,5 +27,5 @@ class Todo extends AV.Object{
     set TodoMember(value){this.set('TodoMember',value);}
 }
 
-Av.Object.register(Todo,'Tode');
+AV.Object.register(Todo,'Todo');
 module.exports=Todo;

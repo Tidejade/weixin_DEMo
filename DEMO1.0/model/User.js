@@ -19,5 +19,5 @@ class User extends AV.Object{
     }
 }
 
-Av.Object.register(User,'User');
+AV.Object.register(User,'User');
 module.exports=User;

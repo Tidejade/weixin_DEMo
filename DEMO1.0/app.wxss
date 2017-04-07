@@ -8,6 +8,8 @@
   padding: 200rpx 0;
   box-sizing: border-box;
   background-color: #1d1128;
+  font-family : microsoft yahei ;
+  color: #aaa;
 } 
 page{
   height: 100%;
