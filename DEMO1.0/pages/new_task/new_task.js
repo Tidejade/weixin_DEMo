@@ -22,28 +22,28 @@ Page({
     var year=d.getFullYear();
     var Tnow=year+"-"+month+"-"+day;
     var Tset=e.detail.value;
-    var iDays=DateDiff(Tset,Tnow).toString().split("");
-    if(iDays.length==2){
+    var iDayss=DateDiff(Tset,Tnow).toString().split("");
+    if(iDayss.length==2){
     this.setData({
       date:Tset,
       date_f:0,
-      date_l:iDays[0],
-      date_t:iDays[1],
+      date_l:iDayss[0],
+      date_t:iDayss[1],
       DeadLine:Tset,
       NowTime:Tnow,
     })}else{
       this.setData({
       date:Tset,
-      date_f:iDays[0],
-      date_l:iDays[1],
-      date_t:iDays[2],
+      date_f:iDayss[0],
+      date_l:iDayss[1],
+      date_t:iDayss[2],
       DeadLine:Tset,
       NowTime:Tnow,
     })
     }
 
      function  DateDiff(sDate1,  sDate2){    //sDate1和sDate2是2002-12-18格式  
-       var  aDate,  oDate1,  oDate2,  iDays  
+       var  aDate,  oDate1,  oDate2,  iDays;  
        aDate  =  sDate1.split("-")  
        oDate1  =  new  Date(aDate[1]  +  '-'  +  aDate[2]  +  '-'  +  aDate[0])    //转换为12-18-2002格式  
        aDate  =  sDate2.split("-")  
@@ -54,7 +54,7 @@ Page({
            content:'  日期不要小于今天'+  Tnow,
            duration:3000
          })
-         return null;
+         return 0;
        }else{
        iDays  =  parseInt(Math.abs(oDate1  -  oDate2)  /  1000  /  60  /  60  /24)    //把相差的毫秒数转换为天数  
        return  iDays}  
