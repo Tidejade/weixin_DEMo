@@ -2,29 +2,51 @@ const AV=require('../lib/av-weapp-min');
 
 class Todo extends AV.Object{
 
-    get TodoOwner(){return this.get('TodoOwner');}
-    set TodoOwner(value){this.set('TodoOwner',value);}
+    get done(){
 
-    get TodoName(){
-        return this.get('TodoName');
+        return this.get('done');
     }
-    set TodoName(value){
-        this.set('TodoName',value);
+    set done(value){
+        this.set('done',value);
     }
-    get TodoCon(){
-        return this.get('TodoCon');
-    }
-    set TodoCon(value){
-        this.set('TodoCon',value)
-    }
-     get TodoStart(){return this.get('TodoStart');}
-    set TodoStart(value){this.set('TodoStart',value);}
 
-     get TodoEnd(){return this.get('TodoEnd');}
-    set TodoEnd(value){this.set('TodoEnd',value);}
+    get Count(){
+        return this.get('Count');
+    }
+    set Count(value){
+        this.set('Count',value);
+    }
+    get ContD(){
+        return this.get('ContD');
+    }
+    set ContD(value){
+        this.set('ContD',value);
+    }
 
-     get TodoMember(){return this.get('TodoMember');}
-    set TodoMember(value){this.set('TodoMember',value);}
+    get Days(){
+        return this.get('Days');
+    }
+    set Days(value){
+        this.set('Days',value);
+    }
+    get Jin(){
+        return this.get('Jin');
+    }
+    set Jin(value){
+        this.set('Jin',value);
+    }
+    get T_name(){
+        return this.get('T_name');
+    }
+    set T_name(value){
+        this.set('T_name',value);
+    }
+    get T_con(){
+        return this.get('T_con');
+    }
+    set T_con(value){
+        this.set('T_con',value);
+    }
 }
 
 AV.Object.register(Todo,'Todo');

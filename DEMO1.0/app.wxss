@@ -7,11 +7,12 @@
   justify-content: center;
   padding: 200rpx 0;
   box-sizing: border-box;
-  background-color: #1d1128;
+   background-color: #1d1128;
   font-family : microsoft yahei ;
   color: #aaa;
 } 
 page{
   height: 100%;
   font-family:"Noto Sans CJK SC", "Source Han Sans CN";
+  background-color: #1d1128;
 }

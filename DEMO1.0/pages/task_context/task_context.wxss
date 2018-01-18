@@ -7,30 +7,51 @@
   box-sizing: border-box;
   background-color: #1d1128;
 }
-image{
-    width:750rpx;
-    display: block;
+button{
+  width:150rpx;
 
+  font-size:11pt;
+  line-height: 1.5;
+  padding: 0;
+  position: relative;
+  background: #cec3dd;
+}
+.task_share{
+  float:left;
+  margin-left: 200rpx;
 }
 .task_name{
-    height: 120rpx;
+    height: 80rpx;
     width:100%;
     background-color: #261a31;
-    margin-top:-10rpx;
     color: white;
-    font-family: microsoft yahei;
-    align-items: center;
+    font-size: 12pt;
+   border-radius: 5%;
+}
+.task_name image{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-top:40rpx;
+  float:right;
+  margin-right:80rpx;
 }
 .task_nameF{
-    float:left;
     margin-left:140rpx;
-    margin-top:30rpx;
+    float:left;
+}
+.task_nameF text{
+  font-size:11pt;
 }
 .leader_name{
     float:left;
     margin-top: 32rpx;
     margin-left: 10rpx;
     font-size: 12pt;
+}
+image{
+  width: 100%;
+
 }
 .leader_pic{
     margin-top: 40rpx;
@@ -40,8 +61,8 @@ image{
     height: 32rpx;
 }
 .task_team{
-    
-     height: 230rpx;
+    border-radius: 5%;
+    height: 400rpx;
     width:100%;
     background-color: #261a31;
     margin-top:10rpx;
@@ -53,18 +74,25 @@ image{
     float:left;
     margin-left:70rpx;
 }
+.task_nameWrap{
+    width:100%;
+    margin-top:20rpx;
+    float:left;
+    margin-left:70rpx;
+}
 .teamtext{
     float:left;
     font-size: 11pt;
 }
 .task_des{
-      height: 180rpx;
+      height: 190rpx;
     width:100%;
     background-color: #261a31;
     margin-top:10rpx;
     color: white;
     font-family: microsoft yahei;
     font-size: 11pt;
+      border-radius: 5%;
 }
 .des_wrap{
      margin-top:20rpx;

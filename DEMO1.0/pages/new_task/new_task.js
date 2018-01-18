@@ -1,89 +1,113 @@
 // pages/new_task/new_task.js
-const AV=require('../../lib/av-weapp-min');
-const Todo=require('../../model/Todo');
+const AV = require('../../lib/av-weapp-min');
+const Todo = require('../../model/Todo');
+var util = require('../../utils/util');
 Page({
-  data:{
-    date:'点我设置截至日期',
-    date_f:'0',
-    date_l:'0',
-    date_t:'0',
-    T_name:'',
-    T_con:'',
-    DeadLine:'',
-    NowTime:'',
+  data: {
+    date: '点我设置截至日期',
+    date_f: '0',
+    date_l: '0',
+    T_name: '',
+    T_con: '',
+    DeadLine: '',
+    NowTime: '',
+    array: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'],
+    index: 0,
+    done: false
   },
-  onLoad:function(options){
+  login:function(){
+
+    return AV.Promise.resolve(AV.User.current()).then(user=>user ?(user.isAuthenticated().then(authed=>authed?user:null)):null
+    ).then(user=>user?user:AV.User.loginWithWeapp());
+
+  },
+  onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
+     this.login();  
   },
-  bindDateChange:function(e){
-    var d=new Date();
-    var day=d.getDate()
-    var month=d.getMonth()+1;
-    var year=d.getFullYear();
-    var Tnow=year+"-"+month+"-"+day;
-    var Tset=e.detail.value;
-    var iDayss=DateDiff(Tset,Tnow).toString().split("");
-    if(iDayss.length==2){
+  bindDateChange: function (e) {
     this.setData({
-      date:Tset,
-      date_f:0,
-      date_l:iDayss[0],
-      date_t:iDayss[1],
-      DeadLine:Tset,
-      NowTime:Tnow,
-    })}else{
-      this.setData({
-      date:Tset,
-      date_f:iDayss[0],
-      date_l:iDayss[1],
-      date_t:iDayss[2],
-      DeadLine:Tset,
-      NowTime:Tnow,
+      index:parseInt(e.detail.value)
     })
+    var cont = parseInt(e.detail.value) + 1;
+    if (e.detail.value < 9) {
+      this.setData({
+        date_f: '0',
+        date_l: parseInt(e.detail.value) + 1,
+        date: util.DateDiff(cont)
+      })
+    } else if(e.detail.value==9){
+
+       this.setData({
+        date_f:'1',
+        date_l: '0',
+        date: util.DateDiff(10)
+      })
+    }else {
+      var arr = [];
+      arr = e.detail.value.split("");
+      this.setData({
+        date_f: arr[0],
+        date_l: parseInt(arr[1]) + 1,
+        date: util.DateDiff(cont)
+      })
+
     }
 
-     function  DateDiff(sDate1,  sDate2){    //sDate1和sDate2是2002-12-18格式  
-       var  aDate,  oDate1,  oDate2,  iDays;  
-       aDate  =  sDate1.split("-")  
-       oDate1  =  new  Date(aDate[1]  +  '-'  +  aDate[2]  +  '-'  +  aDate[0])    //转换为12-18-2002格式  
-       aDate  =  sDate2.split("-")  
-       oDate2  =  new  Date(aDate[1]  +  '-'  +  aDate[2]  +  '-'  +  aDate[0])  
-       if((oDate1-oDate2)<0){
-         wx.showModal({
-           title:'',
-           content:'  日期不要小于今天'+  Tnow,
-           duration:3000
-         })
-         return 0;
-       }else{
-       iDays  =  parseInt(Math.abs(oDate1  -  oDate2)  /  1000  /  60  /  60  /24)    //把相差的毫秒数转换为天数  
-       return  iDays}  
-}
   },
-  onReady:function(){
+
+  onReady: function () {
     // 页面渲染完成
+   
   },
-  onShow:function(){
+  onShow: function () {
     // 页面显示
   },
-  onHide:function(){
+  onHide: function () {
     // 页面隐藏
   },
-  onUnload:function(){
+  onUnload: function () {
     // 页面关闭
   },
-  add_ok:function(){
+  add_ok: function () {
+    var value_name=this.data.T_name;
+    var value_date=this.data.date;
+    var d=this.data.index+1;
+    if(!value_name){return;}
+    var value_context=this.data.T_con;
+    if(!value_context){return;}
+    var acl=new AV.ACL();
+    acl.setPublicReadAccess(false);
+    acl.setPublicWriteAccess(false);
+    acl.setReadAccess(AV.User.current(),true);
+    acl.setWriteAccess(AV.User.current(),true);
+    new Todo({
+      T_name:value_name,
+      T_con:value_context,
+      T_date:value_date,
+      user:AV.User.current(),
+      Count:0,
+      Days:d,
+      ContD:'0',
+      done:false,
+      Jin:0
+    }).setACL(acl).save();
     wx.redirectTo({
       url: '../task_list/task_list'
     })
 
   },
- updateTName:function({detail:{value}}){
-   if(!value)return;
-   this.setData({T_name:value});
- },
- updateTCon:function({detail:{value}}){
-   if(!value)return;
-   this.setData({T_con:value});
- },
+  updateTName: function ({detail: {value}}) {
+    if (!value) return;
+    this.setData({ T_name: value });
+  },
+  updateTCon: function ({detail: {value}}) {
+    if (!value) return;
+    this.setData({ T_con: value });
+  },
+  cancle:function(){
+    wx.redirectTo({
+      url: '../task_list/task_list'
+    })
+  },
 })

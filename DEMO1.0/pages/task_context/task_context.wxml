@@ -3,29 +3,31 @@
     <image src="../../images/back.png" mode="aspectFit"></image>
   </view>
   <view class="task_name">
-    <text class="task_nameF">速图一小时打卡</text>
-    <view class="task_leader">
-      <image class="leader_pic" src="../../images/per.png"></image>
-      <text class="leader_name">段泥马</text>
+    <view class='task_nameWrap'>
+      <text class="teamtext">· 目标</text>
+      <view class="task_nameF"><text>{{title}}</text></view>
+      <view class="task_share"><button open-type="share">邀请好友</button></view>
+     <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="leader_name">{{userInfo.nickName}}</text>-->
     </view>
-   </view>
-   <view class="task_team">
-     <view class="task_teamWrap">
-        <text class="teamtext">· 同行的小伙伴们</text>
-        <scroll-view class="members" scroll-x="ture">
-            <view class="mem_list">
-            </view>
-        </scroll-view>
-     </view>
-   </view>
-   <view class="task_des">
+  </view>
+  <view class="task_team">
+    <view class="task_teamWrap">
+      <text class="teamtext">· 统计情况</text>
+      <scroll-view class="members" scroll-x="ture">
+        <view class="mem_list">
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="task_des">
     <view class="des_wrap">
-        <view class="huo">
-        <text>. 活动简介</text>
-        </view>
-        <view class="des_content">
-        <text >为了加快各位大触的。。。。。</text>
-        </view>
+      <view class="huo">
+        <text>. 目标简介</text>
+      </view>
+      <view class="des_content">
+        <text>{{content}}</text>
+      </view>
     </view>
-   </view>
+  </view>
 </view>

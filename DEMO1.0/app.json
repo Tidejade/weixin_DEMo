@@ -8,7 +8,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#261a31",
-    "navigationBarTitleText": "滴打卡",
-    "backgroundColor": "#cce7e3",   "navigationBarTextStyle":"white"
+    "navigationBarTitleText": "PUNCH",
+    "backgroundColor": "#1d1128",   "navigationBarTextStyle":"white"
   }
 }

@@ -1,7 +1,9 @@
 var app = getApp()
+const AV = require('../../lib/av-weapp-min');
 Page({
   data: {
-    userInfo: {}
+    userInfo: {},
+    t:'启程'
   },
   //事件处理函数
   onLoad: function () {
@@ -17,8 +19,10 @@ Page({
   },
   // 添加按钮跳转
   add:function(){
-    wx.redirectTo({
-      url: '../new_task/new_task'
+
+        wx.redirectTo({
+      url: '../task_list/task_list'
     })
-  }
+    }
+  
 })
