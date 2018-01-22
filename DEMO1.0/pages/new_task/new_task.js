@@ -1,7 +1,9 @@
 // pages/new_task/new_task.js
 const AV = require('../../lib/av-weapp-min');
 const Todo = require('../../model/Todo');
+const Group=require('../../model/Group');
 var util = require('../../utils/util');
+var app = getApp();
 Page({
   data: {
     date: '点我设置截至日期',
@@ -13,7 +15,9 @@ Page({
     NowTime: '',
     array: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'],
     index: 0,
-    done: false
+    done: false,
+    objId:'',
+    userInfo:{}
   },
   login:function(){
 
@@ -24,6 +28,7 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
      this.login();  
+     console.log(app.globalData.userInfo.nickName);
   },
   bindDateChange: function (e) {
     this.setData({
@@ -90,8 +95,25 @@ Page({
       Days:d,
       ContD:'0',
       done:false,
-      Jin:0
-    }).setACL(acl).save();
+      Jin:0,
+      Tag:'0'
+    }).setACL(acl).save().then(function(todo){
+      var objectId=todo.id;
+       todo.set('Tag',objectId);
+       todo.save();
+       var aclG=new AV.ACL();
+       aclG.setPublicReadAccess(false);
+       aclG.setPublicWriteAccess(false);
+       aclG.setReadAccess(AV.User.current(), true);
+       aclG.setWriteAccess(AV.User.current(), true);
+       new Group({
+         ListId:objectId,
+         Count:0,
+         ImgUrl: app.globalData.userInfo.avatarUrl,
+         User:AV.User.current()
+       }).setACL(aclG).save();
+    });
+  
     wx.redirectTo({
       url: '../task_list/task_list'
     })

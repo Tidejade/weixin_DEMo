@@ -58,14 +58,14 @@ Page({
   }){
     const { todos } = this.data;
     const currentTodo = todos.filter(todo => todo.id === id)[0];
-    var result=[]
-    result[0]=currentTodo.T_name;
-    result[1]=currentTodo.T_con;
+    //var result=[]
+    //result[0]=currentTodo.T_name;
+    //result[1]=currentTodo.T_con;
     wx.navigateTo({
-      url: '../task_context/task_context?res='+JSON.stringify(result),
+      url: '../task_context/task_context?res='+JSON.stringify(currentTodo),
       success: function(res){
         // success
-        console.log(result);
+        console.log(res);
       },
       fail: function() {
         // fail
@@ -124,10 +124,11 @@ Page({
   },
   onReady: function () {
     // 页面渲染完成
-
+    this.login().then(this.fetchTodos.bind(this)).catch(error => consolo.error(error.message));
   },
   onShow: function () {
     // 页面显示
+   
   },
   onHide: function () {
     // 页面隐藏

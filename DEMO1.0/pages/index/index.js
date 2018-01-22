@@ -20,7 +20,7 @@ Page({
   // 添加按钮跳转
   add:function(){
 
-        wx.redirectTo({
+      wx.redirectTo({
       url: '../task_list/task_list'
     })
     }

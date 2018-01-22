@@ -47,6 +47,12 @@ class Todo extends AV.Object{
     set T_con(value){
         this.set('T_con',value);
     }
+    get Tag(){
+      return this.get('Tag');
+    }
+    set Tag(value){
+      this.set('Tag',value);
+    }
 }
 
 AV.Object.register(Todo,'Todo');

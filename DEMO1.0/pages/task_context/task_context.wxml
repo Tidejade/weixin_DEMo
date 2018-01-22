@@ -5,19 +5,14 @@
   <view class="task_name">
     <view class='task_nameWrap'>
       <text class="teamtext">· 目标</text>
-      <view class="task_nameF"><text>{{title}}</text></view>
-      <view class="task_share"><button open-type="share">邀请好友</button></view>
-     <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <view class="task_nameF">
+        <text>{{title}}</text>
+      </view>
+      <view class="task_share">
+        <button open-type="share">邀请好友</button>
+      </view>
+      <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="leader_name">{{userInfo.nickName}}</text>-->
-    </view>
-  </view>
-  <view class="task_team">
-    <view class="task_teamWrap">
-      <text class="teamtext">· 统计情况</text>
-      <scroll-view class="members" scroll-x="ture">
-        <view class="mem_list">
-        </view>
-      </scroll-view>
     </view>
   </view>
   <view class="task_des">
@@ -27,7 +22,23 @@
       </view>
       <view class="des_content">
         <text>{{content}}</text>
+
       </view>
     </view>
+  </view>
+  <view class="task_team">
+    <view class="task_teamWrap">
+      <text class="teamtext">· 统计情况</text>
+    </view>
+    <view class="memberList">
+    <scroll-view class="members" scroll-y="ture" style="height:270rpx;">
+        <block wx:for="{{members}}"wx:for-item="member" wx:key="objectId">
+            <image class="member-avatar" src="{{member.ImgUrl}}" background-size="cover"></image>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="add_Button" bindtap="AddGroup">
+    <view class="bu">加入</view>
   </view>
 </view>

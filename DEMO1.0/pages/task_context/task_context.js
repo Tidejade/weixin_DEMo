@@ -2,11 +2,14 @@
 var app = getApp();
 const AV = require('../../lib/av-weapp-min');
 const Todo = require('../../model/Todo');
+const Group=require('../../model/Group');
 Page({
   data:{
+    members:[],
     userInfo: {},
     title:"",
-    content:""
+    content:"",
+    List:{}
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -20,8 +23,9 @@ Page({
     });
     var result=JSON.parse(options.res);
     this.setData({
-      title: result[0],
-      content:result[1]
+      title: result.T_name,
+      content:result.T_con,
+      List:result
     });
     console.log(result);
     wx.showShareMenu({
@@ -36,6 +40,7 @@ Page({
         }
       })
     }
+    this.fetchMembers(result.Tag);
   },
   onReady:function(){
     // 页面渲染完成
@@ -53,12 +58,10 @@ Page({
     if(res.from==='button'){
       console.log("Button share");
     }
-    var result=[];
-    reuslt[0]=this.data.title;
-    reuslt[1]=this.data.content;
+    var SData=this.data.List;
     return{
       title:"好友邀请你加入",
-      path: '/pages/task_context/task_context?res=' + JSON.stringify(result),
+      path: '/pages/task_context/task_context?res=' + JSON.stringify(SData),
       success:function(res){
          console.log("Success");
          var shareTickets=res.shareTickets;
@@ -77,5 +80,54 @@ Page({
         console.log("Faild")
       }
     }
+  },
+  AddGroup:function(){
+    var acl = new AV.ACL();
+    acl.setPublicReadAccess(false);
+    acl.setPublicWriteAccess(false);
+    acl.setReadAccess(AV.User.current(), true);
+    acl.setWriteAccess(AV.User.current(), true);
+    new Todo({
+      T_name: this.data.List.T_name,
+      T_con: this.data.List.T_con,
+      T_date: this.data.List.T_date,
+      user: AV.User.current(),
+      Count: 0,
+      Days: this.data.List.Days,
+      ContD: '0',
+      done: false,
+      Jin: 0,
+      Tag: this.data.List.Tag
+    }).setACL(acl).save().then(function (todo) {
+        todo.save();
+      });
+      var aclG = new AV.ACL();
+      aclG.setPublicReadAccess(false);
+      aclG.setPublicWriteAccess(false);
+      aclG.setReadAccess(AV.User.current(), true);
+      aclG.setWriteAccess(AV.User.current(), true);
+      new Group({
+        ListId: this.data.List.Tag,
+        Count: 0,
+        ImgUrl: app.globalData.userInfo.avatarUrl,
+        User: AV.User.current()
+      }).setACL(aclG).save();
+ 
+    wx.redirectTo({
+      url: '../task_list/task_list'
+    })
+  },
+  fetchMembers:function(tag){
+    console.log('TagId',tag);
+    const query=new AV.Query(Group).equalTo('ListId',tag).select('ImgUrl').descending('creatAt');
+    console.log(query);
+    const setMembers=this.setMembers.bind(this);
+    return AV.Promise.all(query.find().then(setMembers));
+  },
+  setMembers:function(members){
+    this.setData({
+      members
+    });
+    return members;
   }
 })

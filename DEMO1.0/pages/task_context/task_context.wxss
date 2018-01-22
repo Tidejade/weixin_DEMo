@@ -62,7 +62,7 @@ image{
 }
 .task_team{
     border-radius: 5%;
-    height: 400rpx;
+    height: 280rpx;
     width:100%;
     background-color: #261a31;
     margin-top:10rpx;
@@ -85,7 +85,7 @@ image{
     font-size: 11pt;
 }
 .task_des{
-      height: 190rpx;
+      height: 130rpx;
     width:100%;
     background-color: #261a31;
     margin-top:10rpx;
@@ -95,13 +95,38 @@ image{
       border-radius: 5%;
 }
 .des_wrap{
-     margin-top:20rpx;
+    width:100%;
+    margin-top:20rpx;
     float:left;
     margin-left:70rpx;
 }
 .des_content{
-    margin-left:15rpx;
-    margin-top:20rpx;
+    float: left;
+    margin-left:81rpx;
+}
+.huo{
+  float:left;
+}
+.add_Button{
+  color:white;
+  height: 150rpx;
+  width:150rpx;
+  border-radius: 50%;
+  margin:30rpx auto;
+  background-color: #261a31;
+  text-align: center;
+}
+.bu{
+  padding-top:45rpx;
+}
+.memberList{
+  float: left;
+  width: 100%;
+  height: 260rpx;
+  margin-left:70rpx;
 
-
+}
+.memberList image{
+  width: 60rpx;
+  height:60rpx;
 }
