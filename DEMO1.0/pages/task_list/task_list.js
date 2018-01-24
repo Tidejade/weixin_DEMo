@@ -1,10 +1,12 @@
 // pages/task_list/task_list.js
 const AV = require('../../lib/av-weapp-min');
 const Todo = require('../../model/Todo');
+const Group = require('../../model/Group');
 var util = require('../../utils/util');
 Page({
   data: {
     todos: [],
+    groups:[],
     con: '',
     na: {}
     // height:0
@@ -29,6 +31,19 @@ Page({
       activeTodos,
     });
     return todos;
+  },
+  fetchGroups:function(user){
+    console.log('uid', user.id);
+    const queryG = new AV.Query(Group)
+      .equalTo('User', AV.Object.createWithoutData('User', user.id))
+      .descending('createdAt');
+    const setGroups = this.setGroups.bind(this);
+    return AV.Promise.all(queryG.find().then(setGroups));
+  },
+  setGroups:function(groups){
+    this.setData({
+      groups
+    });
   },
   toggleDone: function ({
     target: {
@@ -89,9 +104,11 @@ Page({
       duration: 2000
     });
     const { todos } = this.data;
+    const {groups}= this.data;
     var d = util.DateF();
     var pecrent = 0;
     const currentTodo = todos.filter(todo => todo.id === id)[0];
+    const currentGroup = groups.filter(function(item){return (item.ListId==currentTodo.Tag)})[0];
     if (currentTodo.ContD == d) {
       wx.showToast({
 
@@ -101,10 +118,13 @@ Page({
       });
     } else {
       currentTodo.Count = currentTodo.Count + 1;
+      currentGroup.Count = currentTodo.Count;
       currentTodo.ContD = d;
       currentTodo.Jin = Math.ceil((currentTodo.Count / currentTodo.Days) * 100);
       currentTodo.save().
         then(() => this.setTodos(todos)).
+        catch(console.error);
+      currentGroup.save().then(() => this.setGroups(groups)).
         catch(console.error);
     }
   },
@@ -120,11 +140,15 @@ Page({
      that.setData({
        height:hh
      });*/
+    //this.login().then(this.fetchTodos.bind(this)).catch(error => consolo.error(error.message));
+    //this.login().then(this.fetchGroups.bind(this)).catch(error => consolo.error(error.message));
     this.login().then(this.fetchTodos.bind(this)).catch(error => consolo.error(error.message));
+    this.login().then(this.fetchGroups.bind(this)).catch(error => consolo.error(error.message));
   },
   onReady: function () {
     // 页面渲染完成
     this.login().then(this.fetchTodos.bind(this)).catch(error => consolo.error(error.message));
+    this.login().then(this.fetchGroups.bind(this)).catch(error => consolo.error(error.message))
   },
   onShow: function () {
     // 页面显示

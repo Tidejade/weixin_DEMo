@@ -17,7 +17,14 @@ class User extends AV.Object{
     set UserLv(value){
         this.set('UserLv',value)
     }
+    get UserName(){
+      return this.get('UserName');
+    }
+    set UserName(value){
+      this.set('UserName',value);
+    }
 }
+
 
 AV.Object.register(User,'User');
 module.exports=User;

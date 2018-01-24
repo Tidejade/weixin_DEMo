@@ -9,7 +9,8 @@ Page({
     userInfo: {},
     title:"",
     content:"",
-    List:{}
+    List:{},
+    countMember:0
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -41,6 +42,8 @@ Page({
       })
     }
     this.fetchMembers(result.Tag);
+    
+
   },
   onReady:function(){
     // 页面渲染完成
@@ -83,7 +86,7 @@ Page({
   },
   AddGroup:function(){
     var acl = new AV.ACL();
-    acl.setPublicReadAccess(false);
+    acl.setPublicReadAccess(true);
     acl.setPublicWriteAccess(false);
     acl.setReadAccess(AV.User.current(), true);
     acl.setWriteAccess(AV.User.current(), true);
@@ -102,7 +105,7 @@ Page({
         todo.save();
       });
       var aclG = new AV.ACL();
-      aclG.setPublicReadAccess(false);
+      aclG.setPublicReadAccess(true);
       aclG.setPublicWriteAccess(false);
       aclG.setReadAccess(AV.User.current(), true);
       aclG.setWriteAccess(AV.User.current(), true);
@@ -110,6 +113,7 @@ Page({
         ListId: this.data.List.Tag,
         Count: 0,
         ImgUrl: app.globalData.userInfo.avatarUrl,
+        UserName: app.globalData.userInfo.nickName,
         User: AV.User.current()
       }).setACL(aclG).save();
  
@@ -118,8 +122,11 @@ Page({
     })
   },
   fetchMembers:function(tag){
+
     console.log('TagId',tag);
-    const query=new AV.Query(Group).equalTo('ListId',tag).select('ImgUrl').descending('creatAt');
+    const query = new AV.Query('Group').equalTo('ListId',tag).descending('Count');
+
+  
     console.log(query);
     const setMembers=this.setMembers.bind(this);
     return AV.Promise.all(query.find().then(setMembers));

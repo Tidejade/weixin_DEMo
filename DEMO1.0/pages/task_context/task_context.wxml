@@ -28,12 +28,19 @@
   </view>
   <view class="task_team">
     <view class="task_teamWrap">
-      <text class="teamtext">· 统计情况</text>
+      <text class="teamtext">· 小组情况</text>
+      <text class="teamCount"> {{members.length}}人</text>
     </view>
     <view class="memberList">
-    <scroll-view class="members" scroll-y="ture" style="height:270rpx;">
+    <scroll-view class="members" scroll-y="ture" style="height:200rpx;">
         <block wx:for="{{members}}"wx:for-item="member" wx:key="objectId">
+            <view class="member-wrap">
             <image class="member-avatar" src="{{member.ImgUrl}}" background-size="cover"></image>
+            <view class="member-name">
+            <view class="Name"><text >{{member.UserName}}</text></view>
+            <text class="Count">坚持{{member.Count}}天</text>
+            </view>
+            </view>
         </block>
       </scroll-view>
     </view>

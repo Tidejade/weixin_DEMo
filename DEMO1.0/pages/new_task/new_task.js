@@ -82,7 +82,7 @@ Page({
     var value_context=this.data.T_con;
     if(!value_context){return;}
     var acl=new AV.ACL();
-    acl.setPublicReadAccess(false);
+    acl.setPublicReadAccess(true);
     acl.setPublicWriteAccess(false);
     acl.setReadAccess(AV.User.current(),true);
     acl.setWriteAccess(AV.User.current(),true);
@@ -102,7 +102,7 @@ Page({
        todo.set('Tag',objectId);
        todo.save();
        var aclG=new AV.ACL();
-       aclG.setPublicReadAccess(false);
+       aclG.setPublicReadAccess(true);
        aclG.setPublicWriteAccess(false);
        aclG.setReadAccess(AV.User.current(), true);
        aclG.setWriteAccess(AV.User.current(), true);
@@ -110,6 +110,7 @@ Page({
          ListId:objectId,
          Count:0,
          ImgUrl: app.globalData.userInfo.avatarUrl,
+         UserName: app.globalData.userInfo.nickName,
          User:AV.User.current()
        }).setACL(aclG).save();
     });
