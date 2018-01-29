@@ -1,6 +1,8 @@
 <view class="container_change">
   <view>
-    <image src="../../images/back.png" mode="aspectFit"></image>
+    <image class="back"src="../../images/background.png" mode="aspectFit"></image>
+    <image class="cloudOne" src="../../images/cloudA.png"></image>
+    <image class="cloudTwo" src="../../images/cloudA.png"></image>
   </view>
   <view class="task_name">
     <view class='task_nameWrap'>
