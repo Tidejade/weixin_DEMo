@@ -12,17 +12,15 @@
 }
 .add {
   margin: 0 0 0 230rpx;
-  background-color: #261a31;
   border-radius:30px;
 }
 .front_text{
-  background-color: #261a31;
   border-radius:30px;
 }
 /*----------------------------*/
 
 .task_list {
-  background-color: #261a31;
+  background-color: #826094;
   width: 600rpx;
   height: 850rpx;
   border-radius: 30px;
@@ -57,7 +55,7 @@ padding-right:30rpx;
 }
 
 .cir {
-  background-color: #2d213a;
+  
   float: left;
   padding-top: 10rpx;
   padding-bottom: 10rpx;
@@ -80,7 +78,6 @@ padding-right:30rpx;
   padding-top: 10rpx;
   padding-bottom: 10rpx;
   padding-left: 10rpx;
-  background-color: #2d213a;
   float: left;
   border-radius: 5px;
   margin-left: 10rpx;
@@ -98,7 +95,6 @@ padding-right:30rpx;
 
 .task_comfirm {
   float: left;
-  background-color: #2d213a;
   height: 100rpx;
   width: 80rpx;
   border-radius: 5px;

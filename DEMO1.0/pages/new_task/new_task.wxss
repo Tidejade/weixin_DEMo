@@ -1,46 +1,48 @@
 
 /*flex 布局*/
 .fornt_text{
-background-color: #1d1128;
 color: white;
 font-family: microsoft yahei;
 position: absolute;
 left: 100rpx;
-top:120rpx;
-opacity: 0.6;}
+top:120rpx;}
 .cancle{
   margin-left:510rpx;
 }
+::-webkit-input-placeholder{color: white;}
+::-moz-placeholder{color:white;}
+::-ms-input-placeholder{color: white;}
 .taskinfo {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #261a31;
+  background-color: #826094;
   width:600rpx; 
   height:800px;
   border-radius: 30px;
+  color: white;
 }
 .task_name{
   display: flex;
   font-family: microsoft yahei;
   width: 440rpx;
   height: 100rpx;
-  background: #2d213a;
+  background:#714784;
   border-radius: 5%;
   margin: 20rpx 0 0 0;
+  color: white;
 }
 
 .task_context{
   margin-top:30rpx;
   width: 440rpx;
   height: 250rpx;
-  background: #2d213a;
+  background:#714784;
   display: flex;
   border-radius: 5%;
 }
 .time_descri{
-  color:#aaa;
   font-family: microsoft yahei;
   align-self: center;
   margin-top:20rpx;
@@ -59,14 +61,14 @@ opacity: 0.6;}
   margin-left: 50rpx;
   width:75rpx;
   height:140rpx;
-  background: #2d213a;
+  background: #714784;
   font-size:30pt;
   text-align: center;
 }
 .time_day2{
   width:75rpx;
   height: 140rpx;
-  background: #2d213a;
+  background:#714784;
   margin-left: 10rpx;
   font-size: 30pt;
   text-align: center;
@@ -82,11 +84,9 @@ margin-top: 20rpx;
   z-index: 10;
   width: 150rpx;
   height: 150rpx;
-  background: yellow;
   line-height: 150rpx;
   border-radius: 150rpx;
   text-align: center;
   font-size: 30pt;
-  color: #261a31;
   background: #cec3dd;
 }

@@ -7,8 +7,8 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#261a31",
+    "navigationBarBackgroundColor": "#714784",
     "navigationBarTitleText": "PUNCH",
-    "backgroundColor": "#1d1128",   "navigationBarTextStyle":"white"
+    "backgroundColor": "#714784;",   "navigationBarTextStyle":"white"
   }
 }

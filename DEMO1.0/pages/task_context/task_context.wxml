@@ -3,15 +3,13 @@
     <image class="back"src="../../images/background.png" mode="aspectFit"></image>
     <image class="cloudOne" src="../../images/cloudA.png"></image>
     <image class="cloudTwo" src="../../images/cloudA.png"></image>
+    <button class="letter"plain="true" open-type="share"style="color:#ff6666; border:none;">邀请</button> 
   </view>
   <view class="task_name">
     <view class='task_nameWrap'>
       <text class="teamtext">· 目标</text>
       <view class="task_nameF">
         <text>{{title}}</text>
-      </view>
-      <view class="task_share">
-        <button open-type="share">邀请好友</button>
       </view>
       <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="leader_name">{{userInfo.nickName}}</text>-->
@@ -47,7 +45,10 @@
       </scroll-view>
     </view>
   </view>
-  <view class="add_Button" bindtap="AddGroup">
-    <view class="bu">加入</view>
-  </view>
+  <!--<image class="foot_pic"src="../../images/foot.png" mode="aspectFit"style="display:block;"></image>-->
+
+  <!--<view class="add_Button" bindtap="AddGroup">
+ <view class="bu">加入</view>
+   
+  </view>-->
 </view>

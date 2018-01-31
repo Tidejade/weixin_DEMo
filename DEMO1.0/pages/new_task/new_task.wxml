@@ -1,5 +1,5 @@
-<text class="fornt_text">创建新活动</text>
-<text class="fornt_text cancle"bindtap='cancle'>取消</text>
+<text class="fornt_text"></text>
+<text class="fornt_text cancle"bindtap='cancle'>X</text>
 <view class="container">
   <view  class="taskinfo">
     <view class="task_name">
